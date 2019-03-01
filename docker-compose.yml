@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  database:
+    container_name: database-firebird
+    image: jacobalberty/firebird:2.5.8-ss
+    ports:
+      - 3050:3050
+    env_file:
+      - .env
+    volumes:
+      - data:/firebird
+      - /srv/firebird/:/firebird/data
+      - ./tbudf.so:/usr/local/firebird/UDF/tbudf.so
+      - /srv/backups/:/firebird/backups
+volumes:
+  data:
