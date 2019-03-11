@@ -10,8 +10,8 @@ services:
       - .env
     volumes:
       - data:/firebird
-      - /srv/firebird/:/firebird/data
+      - /srv/suprimentos-server/databases/firebird-public/:/firebird/data
       - ./tbudf.so:/usr/local/firebird/UDF/tbudf.so
-      - /srv/backups/:/firebird/backups
+        #      - /srv/backups/:/firebird/backups
 volumes:
   data:
