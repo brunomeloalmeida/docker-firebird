@@ -12,6 +12,7 @@ services:
       - data:/firebird
       - /srv/suprimentos-server/databases/firebird-public/:/firebird/data
       - ./tbudf.so:/usr/local/firebird/UDF/tbudf.so
-        #      - /srv/backups/:/firebird/backups
+      - /srv/suprimentos-server/databases/backups/:/firebird/backups
+      - ./scripts/:/firebird/scripts
 volumes:
   data:
