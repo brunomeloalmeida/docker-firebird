@@ -7,7 +7,7 @@ services:
     ports:
       - ${PORT-3050}:3050
     env_file:
-      - files2docker/.env
+      - .env
     environment:
       - FIREBIRD_USER=SYSDBA
     volumes:
