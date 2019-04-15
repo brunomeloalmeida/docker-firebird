@@ -7,18 +7,14 @@ services:
     ports:
       - ${PORT-3050}:3050
     env_file:
-      - ./files2docker/.env
+      - files2docker/.env
     environment:
       - FIREBIRD_USER=SYSDBA
     volumes:
-      - data:/firebird
       - ./files2docker/scripts:/scripts
       - ./files2docker/tbudf.so:/usr/local/firebird/UDF/tbudf.so
       - ${DATABASES_PATH-./files2docker/databases}:/firebird/data
-      - ${EXTERNAL_SCRIPTS_PATH-./files2docker/external-scripts}:/external-scripts
       - ${BACKUP_PATH-./files2docker/backup}:/backup
-volumes:
-  data:
 
 networks:
   firebird:
