@@ -1,20 +1,15 @@
-version: '2.4'
+version: '3.1'
 
 services:
-  firebird:
+  database:
     container_name: firebird
     image: jacobalberty/firebird:2.5.8-ss
     ports:
       - ${PORT-3050}:3050
     env_file:
       - .env
-    environment:
-      - FIREBIRD_USER=SYSDBA
     volumes:
       - ./files2docker/scripts:/scripts
       - ./files2docker/tbudf.so:/usr/local/firebird/UDF/tbudf.so
       - ${DATABASES_PATH-./files2docker/databases}:/firebird/data
       - ${BACKUP_PATH-./files2docker/backup}:/backup
-
-networks:
-  firebird:
