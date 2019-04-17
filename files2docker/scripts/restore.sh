@@ -27,7 +27,7 @@ fi
 
 
 if [ -f $DATABASE_NAME ]; then
-	/usr/local/firebird/bin/gbak -rep -user $FIREBIRD_USER -pas $ISC_PASSWORD -r -v -o $DATABASE_BKP $DATABASE_NAME
-else	
-	/usr/local/firebird/bin/gbak -user $FIREBIRD_USER -pas $ISC_PASSWORD -r -v -o $DATABASE_BKP $DATABASE_NAME
-fi	
+	/usr/local/firebird/bin/gbak -rep -user sysdba -pas $ISC_PASSWORD -r -v -o $DATABASE_BKP $DATABASE_NAME
+else
+	/usr/local/firebird/bin/gbak -user sysdba -pas $ISC_PASSWORD -r -v -o $DATABASE_BKP $DATABASE_NAME
+fi

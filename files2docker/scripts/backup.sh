@@ -25,4 +25,4 @@ if [ -z $DATABASE_NAME ] || [ -z $DATABASE_BKP ]; then
   exit 1;
 fi
 
-/usr/local/firebird/bin/gbak -user $FIREBIRD_USER -pas $ISC_PASSWORD -b -v $DATABASE_NAME $DATABASE_BKP
+/usr/local/firebird/bin/gbak -user sysdba -pas $ISC_PASSWORD -b -v $DATABASE_NAME $DATABASE_BKP
