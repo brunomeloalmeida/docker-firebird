@@ -10,8 +10,11 @@ services:
       - ISC_PASSWORD=${ISC_PASSWORD-masterkey}
       - TZ=${TZ-America/Sao_Paulo}
     volumes:
+      - data:/firebird
       - ./files2docker/scripts:/scripts
       - ./files2docker/tbudf.so:/usr/local/firebird/UDF/tbudf.so
       - ${EXTERNAL_SCRIPTS-./files2docker/external_scripts}:/external_scripts
       - ${DATABASES_PATH-./files2docker/databases}:/firebird/data
       - ${BACKUP_PATH-./files2docker/backup}:/backup
+volumes:
+  data:
