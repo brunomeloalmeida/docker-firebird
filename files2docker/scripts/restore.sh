@@ -11,7 +11,7 @@ example() {
   echo " restore.sh <DATABASE_NAME> <DATABASE_BKP>"
   echo
   echo " example:"
-  echo "   sh /scripts/restore.sh meu_banco.fdb meu_banco.fbk"
+  echo "   sh /scripts/restore.sh my_database.fdb my_database.fbk"
   echo -e "==================================${COLOR_CLEAN}"
 }
 
@@ -20,7 +20,7 @@ DATABASE_NAME=$1
 DATABASE_BKP=$2
 
 if [ -z $DATABASE_NAME ] || [ -z $DATABASE_BKP ]; then
-  echo -e "${COLOR_RED}Erro: Parâmetros esperados inválidos"
+  echo -e "${COLOR_RED}Error: Invalid parameters"
   example;
   exit 1;
 fi

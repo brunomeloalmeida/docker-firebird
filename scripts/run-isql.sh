@@ -8,21 +8,19 @@ COLOR_CLEAN='\033[0m';
 example() {
   echo -e "${COLOR_DARK_GRAY}=================================="
   echo "How to use it:"
-  echo " backup.sh <DATABASE_NAME> <DATABASE_BKP>"
+  echo " roda-sql.sh <DATABASE_NAME>"
   echo
   echo " example:"
-  echo "   sh /scripts/backup.sh my_database.fdb my_database.fbk"
+  echo "   sh /scripts/run-isql.sh /firebird/data/my_database.fdb"
   echo -e "==================================${COLOR_CLEAN}"
 }
 
-
 DATABASE_NAME=$1
-DATABASE_BKP=$2
 
-if [ -z $DATABASE_NAME ] || [ -z $DATABASE_BKP ]; then
+if [ -z $DATABASE_NAME ]; then
   echo -e "${COLOR_RED}Error: Invalid parameters"
   example;
   exit 1;
 fi
 
-/usr/local/firebird/bin/gbak -user sysdba -pas $ISC_PASSWORD -b -v $DATABASE_NAME $DATABASE_BKP
+docker exec -ti firebird bash -c '/usr/local/firebird/bin/isql -u sysdba -p $ISC_PASSWORD '$DATABASE_NAME
