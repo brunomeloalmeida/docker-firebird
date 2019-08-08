@@ -16,5 +16,7 @@ services:
       - ${EXTERNAL_SCRIPTS-./files2docker/external_scripts}:/external_scripts
       - ${DATABASES_PATH-./files2docker/databases}:/firebird/data
       - ${BACKUP_PATH-./files2docker/backup}:/backup
+    restart: unless-stopped
+
 volumes:
   data:
