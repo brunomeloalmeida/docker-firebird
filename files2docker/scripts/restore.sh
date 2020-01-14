@@ -8,16 +8,16 @@ COLOR_CLEAN='\033[0m';
 example() {
   echo -e "${COLOR_DARK_GRAY}=================================="
   echo "How to use it:"
-  echo " restore.sh <DATABASE_NAME> <DATABASE_BKP>"
+  echo " restore.sh <DATABASE_BKP> <DATABASE_NAME>"
   echo
   echo " example:"
-  echo "   sh /scripts/restore.sh my_database.fdb my_database.fbk"
+  echo "   sh /scripts/restore.sh my_database.fbk my_database.fdb"
   echo -e "==================================${COLOR_CLEAN}"
 }
 
 
-DATABASE_NAME=$1
-DATABASE_BKP=$2
+DATABASE_BKP=$1
+DATABASE_NAME=$2
 
 if [ -z $DATABASE_NAME ] || [ -z $DATABASE_BKP ]; then
   echo -e "${COLOR_RED}Error: Invalid parameters"
