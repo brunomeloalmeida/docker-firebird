@@ -5,7 +5,7 @@ files2docker/*
 
 
 !files2docker/scripts/
-!files2docker/scripts/
+!files2docker/docker-entrypoint.sh
 !files2docker/tbudf.so
 !docker-compose.yml
 !.env.sample
